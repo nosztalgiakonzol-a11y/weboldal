@@ -222,7 +222,7 @@
   .popup-modal .txt{ color:#e0e0e0; line-height:1.35; margin-top:6px; }
   .modal .btns{ display:flex; gap:10px; justify-content:flex-end; margin-top:14px; flex-wrap:wrap; }
   .inline-link{ border:1px solid #00ff88; background:#173329; color:#bfffdc; border-radius:10px; padding:10px 14px; text-decoration:none; font-weight:700; }
-  .help-modal-panel{ place-items: start end; padding: 58px 14px 0; }
+  .help-modal-panel{ place-items: center; padding: 14px; }
   .help-modal-panel .box{
     width:min(92vw, 360px);
     border-color: rgba(0,255,136,.26);
@@ -237,6 +237,12 @@
   .help-row .lbl{ color:#e6ffe6; font-weight:700; line-height:1.35; }
   .help-row .lbl.note{ color:#d7dbe0; font-weight:600; font-size:.94rem; }
   .help-row .inline-link{ min-width:122px; text-align:center; }
+  @media (max-width: 520px){
+    .help-modal-panel{ padding:10px; }
+    .help-modal-panel .box{ width:min(96vw, 360px); }
+    .help-row{ grid-template-columns:1fr; }
+    .help-row .inline-link{ width:100%; min-width:0; }
+  }
 
   .calc-toast{
     position: absolute;
@@ -918,6 +924,23 @@
     const sanitized = override ? sanitizeUrl(override) : null;
     return sanitized || defaultUrl;
   }
+  function resolveDynamicBookmaker(keyRaw) {
+    const raw = String(keyRaw || '').trim();
+    if (!raw) return null;
+    const key = raw.toLowerCase();
+    const predefined = bookmakers[key];
+    if (predefined) {
+      return {
+        key,
+        label: predefined.label,
+        url: resolveBookmakerUrl(key, predefined.url)
+      };
+    }
+    const dynamicUrl = resolveBookmakerUrl(raw, null);
+    if (!dynamicUrl) return null;
+    const dynamicLabel = getCaseInsensitiveParam(`${raw}label`) || raw;
+    return { key, label: dynamicLabel, url: dynamicUrl };
+  }
   function parseNum(el) { return Number(String(el.value).replace(',', '.')); }
 
   function applyURLParamsToFields() {
@@ -977,13 +1000,10 @@
       const odds2Book = _getBookVal("odds2Book");
 
       [odds1Book, odds2Book].filter(Boolean).forEach(keyRaw => {
-        const key = String(keyRaw).toLowerCase();
-        const bm  = bookmakers[key];
-        if (!bm || seen.has(key)) return;
-
-        const url = resolveBookmakerUrl(key, bm.url);
-        books.push({ key, label: bm.label, url });
-        seen.add(key);
+        const bm = resolveDynamicBookmaker(keyRaw);
+        if (!bm || seen.has(bm.key)) return;
+        books.push(bm);
+        seen.add(bm.key);
       });
 
       // Gyors megnyitás gomb ideiglenesen kikapcsolva.
@@ -1893,6 +1913,7 @@
   </script>
 </body>
 </html>
+
 
 
 
