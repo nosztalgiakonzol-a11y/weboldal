@@ -344,6 +344,8 @@
   .error { color: #ff5252; margin-top: 14px; font-weight: 600; }
 
   #stake, label[for="stake"] { display: none; }
+  body.show-total-stake #stake,
+  body.show-total-stake label[for="stake"] { display: block; }
 
   .input-with-copy { position: relative; width: 100%; }
   .value-input.copyable { padding-right: 52px; }
@@ -1014,6 +1016,12 @@
     }
     return null;
   }
+  function shouldShowTotalStakeField() {
+    return String(getCaseInsensitiveParam('stakeall') || '').trim().toLowerCase() === 'on';
+  }
+  function applyStakeFieldVisibility() {
+    document.body.classList.toggle('show-total-stake', shouldShowTotalStakeField());
+  }
   function getMatchName(){
     return _getHiddenVal('Meccs') ?? getCaseInsensitiveParam('Meccs');
   }
@@ -1120,6 +1128,7 @@
     try {
       applyI18nStatic();
       applyURLParamsToFields();
+      applyStakeFieldVisibility();
 
       // Hidden paramok kitöltése (case-insensitive)
       const f1Param = getCaseInsensitiveParam('F1');
