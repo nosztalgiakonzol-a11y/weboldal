@@ -89,10 +89,10 @@
     inset: 0;
     display: grid;
     place-items: center;
-    background: rgba(6,9,13,.32);
-    backdrop-filter: blur(6px);
+    background: rgba(6,9,13,.48);
+    backdrop-filter: blur(8px);
     z-index: 1400;
-    transition: opacity .26s ease, visibility .26s ease;
+    transition: opacity .42s ease, visibility .42s ease;
   }
   .page-loader.is-hidden{
     opacity: 0;
@@ -105,7 +105,7 @@
     justify-content:center;
     transform: translateY(0) scale(1);
     opacity: 1;
-    transition: transform .28s ease, opacity .28s ease;
+    transition: transform .42s ease, opacity .42s ease;
   }
   .page-loader.is-hidden .page-loader-card{
     transform: translateY(-6px) scale(.96);
@@ -674,7 +674,7 @@
     <label for="odds2" id="labelOdds2" class="odds-title">Odds 2</label>
     <input type="number" id="odds2" step="0.01" min="1.01" placeholder="pl. 2,63" value="2.63" />
 
-    <label for="stake">Teljes tét (Ft)</label>
+    <label for="stake" id="labelStake" class="odds-title">Teljes tét (Ft)</label>
     <input type="number" id="stake" step="1" min="1" placeholder="pl. 10000" value="10000" />
     <div id="quickBetWrap"></div>
     <div id="bookmakerButtons"></div>
@@ -940,19 +940,28 @@
     labelOdds1.textContent = t('odds1');
     labelOdds2.textContent = t('odds2');
     const stakeLabel = document.querySelector('label[for="stake"]');
-    if (stakeLabel) stakeLabel.textContent = t('totalStake');
+    if (stakeLabel) stakeLabel.textContent = getTotalStakeLabelText();
     if (stakeField) {
       const hasStakeParam = (new URLSearchParams(window.location.search)).has('stake');
-      if (currentLang === 'sk') {
+      const totalStakeMode = totalStakeModeForLang();
+      if (totalStakeMode === 'EUR') {
         stakeField.step = '0.1';
         stakeField.min = '0.1';
         stakeField.placeholder = 'pl. 100';
-        if (!hasStakeParam) stakeField.value = '100';
+      } else if (totalStakeMode === 'RSD') {
+        stakeField.step = '10';
+        stakeField.min = '10';
+        stakeField.placeholder = 'pl. 3000';
+      } else if (totalStakeMode === 'RON') {
+        stakeField.step = '1';
+        stakeField.min = '1';
+        stakeField.placeholder = 'pl. 130';
       } else {
         stakeField.step = '1';
         stakeField.min = '1';
         stakeField.placeholder = 'pl. 10000';
       }
+      if (!hasStakeParam) stakeField.value = getDefaultTotalStakeValue();
     }
     calcButton.textContent = t('calculate');
     calcButton.setAttribute('aria-label', t('calculateAria'));
@@ -1082,7 +1091,7 @@
   let stakeRoundTimer2 = null;
 
   const APP_BOOT_STARTED_AT = performance.now();
-  const INITIAL_LOADER_MIN_MS = 220;
+  const INITIAL_LOADER_MIN_MS = 700;
   const INITIAL_INPUT_ANIMATION_MS = 540;
   const INITIAL_PROFIT_ANIMATION_MS = 680;
   const INITIAL_GUARANTEED_ANIMATION_MS = 820;
@@ -1102,24 +1111,36 @@
   let isFocusedS2 = false;
 
   const localModeForLang = () => (currentLang === 'sk' ? 'EUR' : (currentLang === 'ro' ? 'RON' : (currentLang === 'rs' ? 'RSD' : 'HUF')));
+  const totalStakeModeForLang = () => localModeForLang();
   const isLocalMode = m => (m === 'RON' || m === 'RSD');
   const localRateForMode = m => (m === 'RON' ? ronRate : (m === 'RSD' ? rsdRate : 1));
   const labelFor = m => (m === 'EUR' ? 'EUR' : (m === 'RON' ? 'RON' : (m === 'RSD' ? 'RSD' : 'Ft')));
+  function getTotalStakeLabelText() {
+    return t('totalStake').replace(/\([^)]*\)\s*$/, `(${labelFor(totalStakeModeForLang())})`);
+  }
+  function getDefaultTotalStakeValue() {
+    const totalStakeMode = totalStakeModeForLang();
+    if (totalStakeMode === 'EUR') return '100';
+    if (totalStakeMode === 'RON') return String(Math.max(1, Math.round(10000 / ronRate)));
+    if (totalStakeMode === 'RSD') return String(Math.max(10, Math.round((10000 / rsdRate) / 10) * 10));
+    return '10000';
+  }
+  function formatTotalStakeValue(displayValue, mode = totalStakeModeForLang()) {
+    const n = Number(String(displayValue).replace(',', '.'));
+    if (!Number.isFinite(n)) return '';
+    return mode === 'EUR'
+      ? (Math.round(n * 100) / 100).toFixed(2)
+      : Math.round(n).toString();
+  }
   const stakeInputToHUF = () => {
-    const totalStake = parseFloat(stakeField.value.replace(',', '.'));
+    const totalStake = Number(String(stakeField.value).replace(',', '.'));
     if (!Number.isFinite(totalStake)) return NaN;
-    return currentLang === 'sk' ? (totalStake * eurRate) : totalStake;
+    return displayToHUF(totalStake, totalStakeModeForLang());
   };
   const setStakeInputFromHUF = (hufValue) => {
-    if (currentLang === 'sk') {
-      const eurValue = hufToDisplay(hufValue, 'EUR');
-      stakeField.value = Number.isFinite(eurValue)
-        ? (Math.round(eurValue * 100) / 100).toFixed(2)
-        : '';
-      return;
-    }
-    const huf = Number(hufValue);
-    stakeField.value = Number.isFinite(huf) ? Math.round(huf).toString() : '';
+    const totalStakeMode = totalStakeModeForLang();
+    const displayValue = hufToDisplay(hufValue, totalStakeMode);
+    stakeField.value = formatTotalStakeValue(displayValue, totalStakeMode);
   };
 
   // BETÖLTÉSKOR
@@ -1278,7 +1299,7 @@
     if (!isNaN(o2) && o2 >= 1.01) odds2Field.value = o2.toFixed(2);
 
     const t = parseFloat(params.get('stake'));
-    if (!isNaN(t) && t > 0) stakeField.value = currentLang === 'sk' ? t.toFixed(2) : t.toFixed(0);
+    if (!isNaN(t) && t > 0) stakeField.value = formatTotalStakeValue(t);
 
     showBookmakerButtons();
   }
@@ -1339,7 +1360,10 @@
 
     if (Number.isFinite(o1) && o1 >= 1.01) params.set('odds1', o1.toFixed(2));
     if (Number.isFinite(o2) && o2 >= 1.01) params.set('odds2', o2.toFixed(2));
-    if (Number.isFinite(t)  && t > 0)      params.set('stake', currentLang === 'sk' ? t.toFixed(2) : t.toFixed(0));
+    if (Number.isFinite(t)  && t > 0) {
+      const totalStakeMode = totalStakeModeForLang();
+      params.set('stake', totalStakeMode === 'EUR' ? t.toFixed(2) : t.toFixed(0));
+    }
 
     history.replaceState(null, '', `${window.location.pathname}?${params.toString()}`);
   }
