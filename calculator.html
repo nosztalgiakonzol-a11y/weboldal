@@ -1110,6 +1110,7 @@
 
   let isFocusedS1 = false;
   let isFocusedS2 = false;
+  let isFocusedTotalStake = false;
 
   const localModeForLang = () => (currentLang === 'sk' ? 'EUR' : (currentLang === 'ro' ? 'RON' : (currentLang === 'rs' ? 'RSD' : 'HUF')));
   const totalStakeModeForLang = () => localModeForLang();
@@ -1139,6 +1140,7 @@
     return displayToHUF(totalStake, totalStakeModeForLang());
   };
   const setStakeInputFromHUF = (hufValue) => {
+    if (isFocusedTotalStake || document.activeElement === stakeField) return;
     const totalStakeMode = totalStakeModeForLang();
     const displayValue = hufToDisplay(hufValue, totalStakeMode);
     stakeField.value = formatTotalStakeValue(displayValue, totalStakeMode);
@@ -1290,7 +1292,11 @@
     const dynamicLabel = getCaseInsensitiveParam(`${raw}label`) || raw;
     return { key, label: dynamicLabel, url: dynamicUrl };
   }
-  function parseNum(el) { return Number(String(el.value).replace(',', '.')); }
+  function parseNum(el) {
+    const raw = String(el.value).trim().replace(',', '.');
+    if (raw === '') return NaN;
+    return Number(raw);
+  }
 
   function applyURLParamsToFields() {
     const params = new URLSearchParams(window.location.search);
@@ -1366,11 +1372,14 @@
     const t  = parseNum(stakeField);
 
     if (Number.isFinite(o1) && o1 >= 1.01) params.set('odds1', o1.toFixed(2));
+    else params.delete('odds1');
     if (Number.isFinite(o2) && o2 >= 1.01) params.set('odds2', o2.toFixed(2));
+    else params.delete('odds2');
     if (Number.isFinite(t)  && t > 0) {
       const totalStakeMode = totalStakeModeForLang();
       params.set('stake', totalStakeMode === 'EUR' ? t.toFixed(2) : t.toFixed(0));
     }
+    else params.delete('stake');
 
     history.replaceState(null, '', `${window.location.pathname}?${params.toString()}`);
   }
@@ -1385,12 +1394,32 @@
     });
   });
 
+  stakeField.addEventListener('focus', () => {
+    isFocusedTotalStake = true;
+  });
+
+  stakeField.addEventListener('blur', () => {
+    isFocusedTotalStake = false;
+    if (String(stakeField.value).trim() === '') {
+      updateURLParams();
+      return;
+    }
+    calculateArbitrage();
+    updateURLParams();
+  });
+
   stakeField.addEventListener('input', () => {
     clearPendingStakeRounds();
     isFocusedS1 = false;
     isFocusedS2 = false;
     stake1Input = null;
     stake2Input = null;
+    if (String(stakeField.value).trim() === '') {
+      resultDiv.innerHTML = '';
+      errorDiv.textContent = '';
+      updateURLParams();
+      return;
+    }
     calculateArbitrage();
     updateURLParams();
   });
@@ -1624,10 +1653,16 @@
     errorDiv.textContent = '';
 
     if (isNaN(odds1) || isNaN(odds2) || isNaN(totalStake)) {
+      resultDiv.innerHTML = '';
+      stake1Input = null;
+      stake2Input = null;
       errorDiv.textContent = t('validationNumbers');
       return;
     }
     if (odds1 < MIN_ODDS || odds2 < MIN_ODDS || totalStake <= 0) {
+      resultDiv.innerHTML = '';
+      stake1Input = null;
+      stake2Input = null;
       errorDiv.textContent = t('validationOdds').replace('{min}', MIN_ODDS.toFixed(2));
       return;
     }
@@ -1678,11 +1713,11 @@
   }
   function showCopiedState(btn, original = '\uD83D\uDCCB') {
     btn.classList.add('copied');
-    const prev = btn.textContent;
+    const restoreText = btn.textContent || original;
     btn.textContent = '\u2713';
     setTimeout(() => {
       btn.classList.remove('copied');
-      btn.textContent = '\u2713';
+      btn.textContent = restoreText;
     }, 1500);
   }
 
@@ -1800,6 +1835,7 @@
 
   function onStake1Change() {
     if (isUpdating) return;
+    if (String(stake1Input?.value || '').trim() === '') return;
     const odds1 = parseFloat(odds1Field.value.replace(',', '.'));
     const odds2 = parseFloat(odds2Field.value.replace(',', '.'));
 
@@ -1822,6 +1858,7 @@
 
   function onStake2Change() {
     if (isUpdating) return;
+    if (String(stake2Input?.value || '').trim() === '') return;
     const odds1 = parseFloat(odds1Field.value.replace(',', '.'));
     const odds2 = parseFloat(odds2Field.value.replace(',', '.'));
 
@@ -2315,7 +2352,8 @@
     stake1Input.addEventListener('focus', () => { isFocusedS1 = true; });
     stake1Input.addEventListener('input', () => {
       onStake1Change();
-      scheduleStakeRound('s1');
+      if (String(stake1Input.value).trim() === '') clearPendingStakeRounds();
+      else scheduleStakeRound('s1');
       syncInputSteps();
     });
     stake1Input.addEventListener('keydown', (e) => {
@@ -2421,7 +2459,8 @@
     stake2Input.addEventListener('focus', () => { isFocusedS2 = true; });
     stake2Input.addEventListener('input', () => {
       onStake2Change();
-      scheduleStakeRound('s2');
+      if (String(stake2Input.value).trim() === '') clearPendingStakeRounds();
+      else scheduleStakeRound('s2');
       syncInputSteps();
     });
     stake2Input.addEventListener('keydown', (e) => {
