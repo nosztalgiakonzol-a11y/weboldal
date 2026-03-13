@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Arbitrázs Kalkulátor – Dark Mode</title>
+  <title>ArbitrÄ‚Ë‡zs KalkulÄ‚Ë‡tor Ă˘â‚¬â€ś Dark Mode</title>
   <style>
   body {
     background:
@@ -223,7 +223,7 @@
   }
   .book-link:hover, .book-link:focus { background: linear-gradient(90deg, #00bfa5, #00ffcc); box-shadow: 0 6px 20px rgba(0, 255, 204, 0.9); }
 
-  /* Irodák gombcsoport elválasztó */
+  /* IrodÄ‚Ë‡k gombcsoport elvÄ‚Ë‡lasztÄ‚Ĺ‚ */
   #bookmakerButtons:not(:empty){ margin-top: 6px; margin-bottom: 12px; }
   #bookmakerButtons:not(:empty)::after{
     content:""; display:block; height:1px; margin:12px 0 4px 0;
@@ -552,10 +552,10 @@
   }
   .match-pill .dot{ width:8px; height:8px; border-radius:50%; background:#00ffcc; box-shadow:0 0 8px #00ffcc88; flex:0 0 auto; }
 
-  /* Gyors megnyitás + irodák gombok */
+  /* Gyors megnyitÄ‚Ë‡s + irodÄ‚Ë‡k gombok */
   #quickBetWrap:empty { display: none; }
   #quickBetWrap .book-link { margin-top: 18px; }
-  /* KÉRT KIS PLUSZ RÉS a két gombcsoport között */
+  /* KÄ‚â€°RT KIS PLUSZ RÄ‚â€°S a kÄ‚Â©t gombcsoport kÄ‚Â¶zÄ‚Â¶tt */
   #quickBetWrap { margin-bottom: 10px; }
 
   #bookmakerButtons {
@@ -583,26 +583,26 @@
       </div>
     </div>
   </div>
-  <div class="calculator" role="main" id="calculatorRoot" aria-label="Arbitrázs kalkulátor">
-    <!-- Beállítások gomb -->
-    <button class="settings-btn" id="settingsBtn" aria-label="Beállítások" style="display: none;">
-      <img src="123.png" id="settingsBtnIcon" alt="Beállítások">
+  <div class="calculator" role="main" id="calculatorRoot" aria-label="Arbitr&aacute;zs kalkul&aacute;tor">
+    <!-- BeÄ‚Ë‡llÄ‚Â­tÄ‚Ë‡sok gomb -->
+    <button class="settings-btn" id="settingsBtn" aria-label="Be&aacute;ll&iacute;t&aacute;sok" style="display: none;">
+      <img src="123.png" id="settingsBtnIcon" alt="Be&aacute;ll&iacute;t&aacute;sok">
     </button>
-    <button class="help-btn" id="helpBtn" aria-label="Segítség">?</button>
+    <button class="help-btn" id="helpBtn" aria-label="Seg&iacute;ts&eacute;g">?</button>
 
-    <!-- Beállítások -->
+    <!-- BeÄ‚Ë‡llÄ‚Â­tÄ‚Ë‡sok -->
     <div class="modal-backdrop" id="settingsBackdrop" hidden></div>
     <div class="modal" id="settingsModal" hidden>
       <div class="box">
         <div class="hdr">
-          <div class="title" id="settingsTitle">Beállítások</div>
-          <span class="close-x" id="settingsClose">✕</span>
+          <div class="title" id="settingsTitle">Be&aacute;ll&iacute;t&aacute;sok</div>
+          <span class="close-x" id="settingsClose">&#10005;</span>
         </div>
 
         <div class="setting-row">
           <div style="max-width: calc(100% - 120px);">
-            <div class="lbl" id="autoOpenLabel">Fogadóirodák automatikus nyitása</div>
-            <div class="desc" id="autoOpenDesc">Betöltéskor a linkelt irodák megnyitása új fülön.</div>
+            <div class="lbl" id="autoOpenLabel">Fogad&oacute;irod&aacute;k automatikus nyit&aacute;sa</div>
+            <div class="desc" id="autoOpenDesc">Bet&ouml;lt&eacute;skor a linkelt irod&aacute;k megnyit&aacute;sa &uacute;j f&uuml;l&ouml;n.</div>
           </div>
           <label class="toggle" title="Be/Ki">
             <input type="checkbox" id="autoOpenToggle">
@@ -612,11 +612,11 @@
 
         <hr style="border:none; border-top:1px solid rgba(255,255,255,.08); margin:12px 0;">
 
-        <!-- ÚJ: Oldalak megnyitása egyszerre (Gyors megnyitásra) -->
+        <!-- Ä‚ĹˇJ: Oldalak megnyitÄ‚Ë‡sa egyszerre (Gyors megnyitÄ‚Ë‡sra) -->
         <div class="setting-row">
           <div style="max-width: calc(100% - 120px);">
-            <div class="lbl" id="openAllLabel">Oldalak megnyitása egyszerre</div>
-            <div class="desc" id="openAllDesc">Ha be van kapcsolva, a „Gyors megnyitás” gomb az összes irodát egyszerre nyitja meg új füleken.</div>
+            <div class="lbl" id="openAllLabel">Oldalak megnyit&aacute;sa egyszerre</div>
+            <div class="desc" id="openAllDesc">Ha be van kapcsolva, a "Gyors megnyit&aacute;s" gomb az &ouml;sszes irod&aacute;t egyszerre nyitja meg &uacute;j f&uuml;leken.</div>
           </div>
           <label class="toggle" title="Be/Ki">
             <input type="checkbox" id="openAllToggle">
@@ -628,10 +628,10 @@
 
         <div class="setting-row">
           <div style="max-width: calc(100% - 120px);">
-            <div class="lbl" id="settingsHelpLabel">Segítség</div>
-            <div class="desc" id="settingsHelpDesc">Ha az automatikus nyitás nem működik, olvasd el az útmutatót a Discordon.</div>
+            <div class="lbl" id="settingsHelpLabel">Seg&iacute;ts&eacute;g</div>
+            <div class="desc" id="settingsHelpDesc">Ha az automatikus nyit&aacute;s nem m&#369;k&ouml;dik, olvasd el az &uacute;tmutat&oacute;t a Discordon.</div>
           </div>
-          <a id="guideLink" class="inline-link" href="#" target="_blank" rel="noopener" title="Útmutató">Útmutató</a>
+          <a id="guideLink" class="inline-link" href="#" target="_blank" rel="noopener" title="&Uacute;tmutat&oacute;">&Uacute;tmutat&oacute;</a>
         </div>
       </div>
     </div>
@@ -639,29 +639,29 @@
     <div class="modal help-modal-panel" id="helpModal" hidden>
       <div class="box">
         <div class="hdr">
-          <div class="title" id="helpTitle">Segítség</div>
-          <span class="close-x" id="helpClose">✕</span>
+          <div class="title" id="helpTitle">Seg&iacute;ts&eacute;g</div>
+          <span class="close-x" id="helpClose">&#10005;</span>
         </div>
         <div class="help-menu">
           <div class="help-row">
-            <div class="lbl" id="helpNoAccount">Nincs fiókod az irodákhoz?</div>
-            <a id="helpRegisterLink" class="inline-link" href="#" target="_blank" rel="noopener">Regisztrálj itt</a>
+            <div class="lbl" id="helpNoAccount">Nincs fi&oacute;kod az irod&aacute;khoz?</div>
+            <a id="helpRegisterLink" class="inline-link" href="#" target="_blank" rel="noopener">Regisztr&aacute;lj itt</a>
           </div>
           <div class="help-row">
-            <div class="lbl note" id="helpNote">Elakadtál vagy nem értesz valamit? Nézd meg a rövid útmutatót.</div>
-            <a id="helpGuideLink" class="inline-link" href="#" target="_blank" rel="noopener">Útmutató</a>
+            <div class="lbl note" id="helpNote">Elakadt&aacute;l vagy nem &eacute;rtesz valamit? N&eacute;zd meg a r&ouml;vid &uacute;tmutat&oacute;t.</div>
+            <a id="helpGuideLink" class="inline-link" href="#" target="_blank" rel="noopener">&Uacute;tmutat&oacute;</a>
           </div>
         </div>
       </div>
     </div>
 
     <div class="logo-wrapper">
-      <img src="logo21.png" alt="Logó" class="logo" />
+      <img src="logo21.png" alt="Log&oacute;" class="logo" />
     </div>
 
-    <h1>Arbitrázs Kalkulátor</h1>
+    <h1>Arbitr&aacute;zs Kalkul&aacute;tor</h1>
 
-    <!-- Hidden mezők -->
+    <!-- Hidden mezÄąâ€k -->
     <input type="text" id="odds1Book" hidden>
     <input type="text" id="odds2Book" hidden>
     <input type="text" id="Meccs" hidden>
@@ -674,13 +674,13 @@
     <label for="odds2" id="labelOdds2" class="odds-title">Odds 2</label>
     <input type="number" id="odds2" step="0.01" min="1.01" placeholder="pl. 2,63" value="2.63" />
 
-    <label for="stake" id="labelStake" class="odds-title">Teljes tét (Ft)</label>
+    <label for="stake" id="labelStake" class="odds-title">Teljes t&eacute;t (Ft)</label>
     <input type="number" id="stake" step="1" min="1" placeholder="pl. 10000" value="10000" />
     <div id="quickBetWrap"></div>
     <div id="bookmakerButtons"></div>
 
-    <button id="calcButton" type="button" onclick="initCalculate()" aria-label="Számolás indítása">
-      Számolás
+    <button id="calcButton" type="button" onclick="initCalculate()" aria-label="Sz&aacute;mol&aacute;s ind&iacute;t&aacute;sa">
+      Sz&aacute;mol&aacute;s
     </button>
 
     <div id="error" class="error" role="alert"></div>
@@ -688,7 +688,7 @@
   </div>
 
   <script>
-  // === Helper-ek és állandók ===
+  // === Helper-ek Ä‚Â©s Ä‚Ë‡llandÄ‚Ĺ‚k ===
   const _hidden = id => document.getElementById(id);
   const _getHiddenVal = id => {
     const el = _hidden(id);
@@ -747,152 +747,152 @@
   const getRegisterUrl = (lang) => REGISTER_URL_BY_LANG[lang] || REGISTER_URL_BY_LANG[detectLang()] || REGISTER_URL_BY_LANG.hu;
   const I18N = {
     hu: {
-      pageTitle: 'Arbitrázs Kalkulátor – Dark Mode',
-      appTitle: 'Arbitrázs Kalkulátor',
-      calculatorAria: 'Arbitrázs kalkulátor',
-      settingsAria: 'Beállítások',
-      settingsTitle: 'Beállítások',
-      autoOpenLabel: 'Fogadóirodák automatikus nyitása',
-      autoOpenDesc: 'Betöltéskor a linkelt irodák megnyitása új fülön.',
-      openAllLabel: 'Oldalak megnyitása egyszerre',
-      openAllDesc: 'Ha be van kapcsolva, a „Gyors megnyitás” gomb az összes irodát egyszerre nyitja meg új füleken.',
-      settingsHelpLabel: 'Segítség',
-      settingsHelpDesc: 'Ha az automatikus nyitás nem működik, olvasd el az útmutatót a Discordon.',
+      pageTitle: 'Arbitr\u00e1zs Kalkul\u00e1tor \u2013 Dark Mode',
+      appTitle: 'Arbitr\u00e1zs Kalkul\u00e1tor',
+      calculatorAria: 'Arbitr\u00e1zs kalkul\u00e1tor',
+      settingsAria: 'Be\u00e1ll\u00edt\u00e1sok',
+      settingsTitle: 'Be\u00e1ll\u00edt\u00e1sok',
+      autoOpenLabel: 'Fogad\u00f3irod\u00e1k automatikus nyit\u00e1sa',
+      autoOpenDesc: 'Bet\u00f6lt\u00e9skor a linkelt irod\u00e1k megnyit\u00e1sa \u00faj f\u00fcl\u00f6n.',
+      openAllLabel: 'Oldalak megnyit\u00e1sa egyszerre',
+      openAllDesc: 'Ha be van kapcsolva, a "Gyors megnyit\u00e1s" gomb az \u00f6sszes irod\u00e1t egyszerre nyitja meg \u00faj f\u00fcleken.',
+      settingsHelpLabel: 'Seg\u00edts\u00e9g',
+      settingsHelpDesc: 'Ha az automatikus nyit\u00e1s nem m\u0171k\u00f6dik, olvasd el az \u00fatmutat\u00f3t a Discordon.',
       odds1: 'Odds 1',
       odds2: 'Odds 2',
-      totalStake: 'Teljes tét (Ft)',
-      stakeWord: 'tét',
-      calculate: 'Számolás',
-      calculateAria: 'Számolás indítása',
-      loadError: 'Hiba történt a betöltéskor.',
-      validationNumbers: 'Kérjük, adjon meg érvényes számokat minden mezőben.',
-      validationOdds: 'Az oddsok legalább {min}-ek, a tét pedig legyen nagyobb 0-nál.',
+      totalStake: 'Teljes t\u00e9t (Ft)',
+      stakeWord: 't\u00e9t',
+      calculate: 'Sz\u00e1mol\u00e1s',
+      calculateAria: 'Sz\u00e1mol\u00e1s ind\u00edt\u00e1sa',
+      loadError: 'Hiba t\u00f6rt\u00e9nt a bet\u00f6lt\u00e9skor.',
+      validationNumbers: 'K\u00e9rj\u00fck, adjon meg \u00e9rv\u00e9nyes sz\u00e1mokat minden mez\u0151ben.',
+      validationOdds: 'Az oddsok legal\u00e1bb {min}-ek, a t\u00e9t pedig legyen nagyobb 0-n\u00e1l.',
       resultIf1: 'Ha 1-es nyer:',
       resultIf2: 'Ha 2-es nyer:',
       resultIfBookWins: 'Ha {book} nyer:',
-      guaranteedProfit: 'Garantált profit:',
-      helpTitle: 'Segítség',
-      helpNoAccount: 'Nincs fiókod az irodákhoz?',
-      helpRegister: 'Regisztrálj itt',
-      helpNote: 'Elakadtál vagy nem értesz valamit? Nézd meg a rövid útmutatót.',
-      helpGuide: 'Útmutató',
-      popupBlockedTitle: 'Automatikus nyitás blokkolva',
-      popupBlockedText: 'Ha nem működik az automatikus megnyitás, nézd meg a rövid útmutatót.',
-      copyStakeAria: 'Tét másolása',
-      swapCurrencyAlt: 'Deviza váltás',
-      swapCurrencyTitle: 'Deviza váltás (HUF ⇄ EUR)',
-      matchAria: 'Mérkőzés'
+      guaranteedProfit: 'Garant\u00e1lt profit:',
+      helpTitle: 'Seg\u00edts\u00e9g',
+      helpNoAccount: 'Nincs fi\u00f3kod az irod\u00e1khoz?',
+      helpRegister: 'Regisztr\u00e1lj itt',
+      helpNote: 'Elakadt\u00e1l vagy nem \u00e9rtesz valamit? N\u00e9zd meg a r\u00f6vid \u00fatmutat\u00f3t.',
+      helpGuide: '\u00datmutat\u00f3',
+      popupBlockedTitle: 'Automatikus nyit\u00e1s blokkolva',
+      popupBlockedText: 'Ha nem m\u0171k\u00f6dik az automatikus megnyit\u00e1s, n\u00e9zd meg a r\u00f6vid \u00fatmutat\u00f3t.',
+      copyStakeAria: 'T\u00e9t m\u00e1sol\u00e1sa',
+      swapCurrencyAlt: 'Deviza v\u00e1lt\u00e1s',
+      swapCurrencyTitle: 'Deviza v\u00e1lt\u00e1s (HUF \u21c4 EUR)',
+      matchAria: 'M\u00e9rk\u0151z\u00e9s'
     },
     rs: {
-      pageTitle: 'Arbitražni Kalkulator – Dark Mode',
-      appTitle: 'Arbitražni Kalkulator',
-      calculatorAria: 'Arbitražni kalkulator',
-      settingsAria: 'Podešavanja',
-      settingsTitle: 'Podešavanja',
+      pageTitle: 'Arbitra\u017eni Kalkulator \u2013 Dark Mode',
+      appTitle: 'Arbitra\u017eni Kalkulator',
+      calculatorAria: 'Arbitra\u017eni kalkulator',
+      settingsAria: 'Pode\u0161avanja',
+      settingsTitle: 'Pode\u0161avanja',
       autoOpenLabel: 'Automatsko otvaranje kladionica',
-      autoOpenDesc: 'Pri učitavanju otvara linkovane kladionice u novim karticama.',
+      autoOpenDesc: 'Pri u\u010ditavanju otvara linkovane kladionice u novim karticama.',
       openAllLabel: 'Otvori sve stranice odjednom',
-      openAllDesc: 'Ako je uključeno, „Brzo otvaranje” otvara sve kladionice odjednom u novim karticama.',
-      settingsHelpLabel: 'Pomoć',
-      settingsHelpDesc: 'Ako automatsko otvaranje ne radi, pogledaj vodič na Discord-u.',
+      openAllDesc: 'Ako je uklju\u010deno, "Brzo otvaranje" otvara sve kladionice odjednom u novim karticama.',
+      settingsHelpLabel: 'Pomo\u0107',
+      settingsHelpDesc: 'Ako automatsko otvaranje ne radi, pogledaj vodi\u010d na Discord-u.',
       odds1: 'Kvota 1',
       odds2: 'Kvota 2',
-      totalStake: 'Ukupan ulog (Ft)',
+      totalStake: 'Ukupan ulog (RSD)',
       stakeWord: 'ulog',
-      calculate: 'Izračunaj',
-      calculateAria: 'Pokreni računanje',
-      loadError: 'Došlo je do greške pri učitavanju.',
-      validationNumbers: 'Unesite važeće brojeve u sva polja.',
-      validationOdds: 'Kvota mora biti najmanje {min}, a ulog veći od 0.',
+      calculate: 'Izra\u010dunaj',
+      calculateAria: 'Pokreni ra\u010dunanje',
+      loadError: 'Do\u0161lo je do gre\u0161ke pri u\u010ditavanju.',
+      validationNumbers: 'Unesite va\u017ee\u0107e brojeve u sva polja.',
+      validationOdds: 'Kvota mora biti najmanje {min}, a ulog ve\u0107i od 0.',
       resultIf1: 'Ako pobedi 1:',
       resultIf2: 'Ako pobedi 2:',
       resultIfBookWins: 'Ako pobedi {book}:',
       guaranteedProfit: 'Garantovani profit:',
-      helpTitle: 'Pomoć',
-      helpNoAccount: 'Nemaš nalog kod kladionica?',
+      helpTitle: 'Pomo\u0107',
+      helpNoAccount: 'Nema\u0161 nalog kod kladionica?',
       helpRegister: 'Registruj se ovde',
-      helpNote: 'Zapeo si ili ti nešto nije jasno? Pogledaj kratko uputstvo.',
+      helpNote: 'Zapeo si ili ti ne\u0161to nije jasno? Pogledaj kratko uputstvo.',
       helpGuide: 'Uputstvo',
       popupBlockedTitle: 'Automatsko otvaranje je blokirano',
       popupBlockedText: 'Ako automatsko otvaranje ne radi, pogledaj kratko uputstvo.',
       copyStakeAria: 'Kopiraj ulog',
       swapCurrencyAlt: 'Promena valute',
-      swapCurrencyTitle: 'Promena valute (HUF ⇄ EUR)',
-      matchAria: 'Meč'
+      swapCurrencyTitle: 'Promena valute (RSD \u21c4 EUR)',
+      matchAria: 'Me\u010d'
     },
     ro: {
-      pageTitle: 'Calculator Arbitraj – Dark Mode',
+      pageTitle: 'Calculator Arbitraj \u2013 Dark Mode',
       appTitle: 'Calculator Arbitraj',
       calculatorAria: 'Calculator arbitraj',
-      settingsAria: 'Setări',
-      settingsTitle: 'Setări',
-      autoOpenLabel: 'Deschidere automată case pariuri',
-      autoOpenDesc: 'La încărcare deschide casele de pariuri asociate în file noi.',
+      settingsAria: 'Set\u0103ri',
+      settingsTitle: 'Set\u0103ri',
+      autoOpenLabel: 'Deschidere automat\u0103 case pariuri',
+      autoOpenDesc: 'La \u00eenc\u0103rcare deschide casele de pariuri asociate \u00een file noi.',
       openAllLabel: 'Deschide toate paginile simultan',
-      openAllDesc: 'Dacă este activat, butonul „Deschidere rapidă” deschide toate casele în file noi.',
+      openAllDesc: 'Dac\u0103 este activat, butonul "Deschidere rapid\u0103" deschide toate casele \u00een file noi.',
       settingsHelpLabel: 'Ajutor',
-      settingsHelpDesc: 'Dacă deschiderea automată nu funcționează, citește ghidul pe Discord.',
-      odds1: 'Cotă 1',
-      odds2: 'Cotă 2',
-      totalStake: 'Miză totală (Ft)',
-      stakeWord: 'miză',
-      calculate: 'Calculează',
-      calculateAria: 'Pornește calculul',
-      loadError: 'A apărut o eroare la încărcare.',
-      validationNumbers: 'Te rugăm să introduci numere valide în toate câmpurile.',
-      validationOdds: 'Cotele trebuie să fie cel puțin {min}, iar miza mai mare decât 0.',
-      resultIf1: 'Dacă iese 1:',
-      resultIf2: 'Dacă iese 2:',
-      resultIfBookWins: 'Dacă câștigă {book}:',
+      settingsHelpDesc: 'Dac\u0103 deschiderea automat\u0103 nu func\u021bioneaz\u0103, cite\u0219te ghidul pe Discord.',
+      odds1: 'Cot\u0103 1',
+      odds2: 'Cot\u0103 2',
+      totalStake: 'Miz\u0103 total\u0103 (RON)',
+      stakeWord: 'miz\u0103',
+      calculate: 'Calculeaz\u0103',
+      calculateAria: 'Porne\u0219te calculul',
+      loadError: 'A ap\u0103rut o eroare la \u00eenc\u0103rcare.',
+      validationNumbers: 'Te rug\u0103m s\u0103 introduci numere valide \u00een toate c\u00e2mpurile.',
+      validationOdds: 'Cotele trebuie s\u0103 fie cel pu\u021bin {min}, iar miza mai mare dec\u00e2t 0.',
+      resultIf1: 'Dac\u0103 iese 1:',
+      resultIf2: 'Dac\u0103 iese 2:',
+      resultIfBookWins: 'Dac\u0103 c\u00e2\u0219tig\u0103 {book}:',
       guaranteedProfit: 'Profit garantat:',
       helpTitle: 'Ajutor',
       helpNoAccount: 'Nu ai cont la casele de pariuri?',
-      helpRegister: 'Înregistrează-te aici',
-      helpNote: 'Te-ai blocat sau nu înțelegi ceva? Vezi ghidul scurt.',
+      helpRegister: '\u00cenregistreaz\u0103-te aici',
+      helpNote: 'Te-ai blocat sau nu \u00een\u021belegi ceva? Vezi ghidul scurt.',
       helpGuide: 'Ghid',
-      popupBlockedTitle: 'Deschiderea automată este blocată',
-      popupBlockedText: 'Dacă deschiderea automată nu funcționează, vezi ghidul scurt.',
-      copyStakeAria: 'Copiază miza',
-      swapCurrencyAlt: 'Schimbare valută',
-      swapCurrencyTitle: 'Schimbare valută (HUF ⇄ EUR)',
+      popupBlockedTitle: 'Deschiderea automat\u0103 este blocat\u0103',
+      popupBlockedText: 'Dac\u0103 deschiderea automat\u0103 nu func\u021bioneaz\u0103, vezi ghidul scurt.',
+      copyStakeAria: 'Copiaz\u0103 miza',
+      swapCurrencyAlt: 'Schimbare valut\u0103',
+      swapCurrencyTitle: 'Schimbare valut\u0103 (RON \u21c4 EUR)',
       matchAria: 'Meci'
     },
     sk: {
-      pageTitle: 'Arbitrážna Kalkulačka – Tmavý Režim',
-      appTitle: 'Arbitrážna Kalkulačka',
-      calculatorAria: 'Arbitrážna kalkulačka',
+      pageTitle: 'Arbitr\u00e1\u017ena Kalkula\u010dka \u2013 Tmav\u00fd Re\u017eim',
+      appTitle: 'Arbitr\u00e1\u017ena Kalkula\u010dka',
+      calculatorAria: 'Arbitr\u00e1\u017ena kalkula\u010dka',
       settingsAria: 'Nastavenia',
       settingsTitle: 'Nastavenia',
-      autoOpenLabel: 'Automatické otváranie stávkových kancelárií',
-      autoOpenDesc: 'Pri načítaní otvorí prepojené stávkové kancelárie v nových kartách.',
-      openAllLabel: 'Otvoriť všetky stránky naraz',
-      openAllDesc: 'Ak je zapnuté, tlačidlo „Rýchle otvorenie” otvorí všetky kancelárie naraz v nových kartách.',
+      autoOpenLabel: 'Automatick\u00e9 otv\u00e1ranie st\u00e1vkov\u00fdch kancel\u00e1ri\u00ed',
+      autoOpenDesc: 'Pri na\u010d\u00edtan\u00ed otvor\u00ed prepojen\u00e9 st\u00e1vkov\u00e9 kancel\u00e1rie v nov\u00fdch kart\u00e1ch.',
+      openAllLabel: 'Otvor\u00ed\u0161 v\u0161etky str\u00e1nky naraz',
+      openAllDesc: 'Ak je zapnut\u00e9, tla\u010didlo "R\u00fdchle otvorenie" otvor\u00ed v\u0161etky kancel\u00e1rie naraz v nov\u00fdch kart\u00e1ch.',
       settingsHelpLabel: 'Pomoc',
-      settingsHelpDesc: 'Ak automatické otváranie nefunguje, pozri si návod na Discorde.',
+      settingsHelpDesc: 'Ak automatick\u00e9 otv\u00e1ranie nefunguje, pozri si n\u00e1vod na Discorde.',
       odds1: 'Kurz 1',
       odds2: 'Kurz 2',
-      totalStake: 'Celkový vklad (EUR)',
+      totalStake: 'Celkov\u00fd vklad (EUR)',
       stakeWord: 'vklad',
-      calculate: 'Vypočítať',
-      calculateAria: 'Spustiť výpočet',
-      loadError: 'Pri načítaní nastala chyba.',
-      validationNumbers: 'Zadajte platné čísla do všetkých polí.',
-      validationOdds: 'Kurzy musia byť aspoň {min} a vklad musí byť väčší ako 0.',
-      resultIf1: 'Ak vyhrá 1:',
-      resultIf2: 'Ak vyhrá 2:',
-      resultIfBookWins: 'Ak vyhrá {book}:',
-      guaranteedProfit: 'Garantovaný zisk:',
+      calculate: 'Vypo\u010d\u00edta\u0165',
+      calculateAria: 'Spusti\u0165 v\u00fdpo\u010det',
+      loadError: 'Pri na\u010d\u00edtan\u00ed nastala chyba.',
+      validationNumbers: 'Zadajte platn\u00e9 \u010d\u00edsla do v\u0161etk\u00fdch pol\u00ed.',
+      validationOdds: 'Kurzy musia by\u0165 aspo\u0148 {min} a vklad mus\u00ed by\u0165 v\u00e4\u010d\u0161\u00ed ako 0.',
+      resultIf1: 'Ak vyhr\u00e1 1:',
+      resultIf2: 'Ak vyhr\u00e1 2:',
+      resultIfBookWins: 'Ak vyhr\u00e1 {book}:',
+      guaranteedProfit: 'Garantovan\u00fd zisk:',
       helpTitle: 'Pomoc',
-      helpNoAccount: 'Nemáš účet v stávkových kanceláriách?',
+      helpNoAccount: 'Nem\u00e1\u0161 \u00fa\u010det v st\u00e1vkov\u00fdch kancel\u00e1ri\u00e1ch?',
       helpRegister: 'Zaregistruj sa tu',
-      helpNote: 'Zasekol si sa alebo niečomu nerozumieš? Pozri si krátky návod.',
-      helpGuide: 'Návod',
-      popupBlockedTitle: 'Automatické otvorenie bolo zablokované',
-      popupBlockedText: 'Ak automatické otvorenie nefunguje, pozri si krátky návod.',
-      copyStakeAria: 'Kopírovať vklad',
+      helpNote: 'Zasekol si sa alebo nie\u010domu nerozumie\u0161? Pozri si kr\u00e1tky n\u00e1vod.',
+      helpGuide: 'N\u00e1vod',
+      popupBlockedTitle: 'Automatick\u00e9 otvorenie bolo zablokovan\u00e9',
+      popupBlockedText: 'Ak automatick\u00e9 otvorenie nefunguje, pozri si kr\u00e1tky n\u00e1vod.',
+      copyStakeAria: 'Kop\u00edrova\u0165 vklad',
       swapCurrencyAlt: 'Prepnutie meny',
-      swapCurrencyTitle: 'Prepnutie meny (HUF ⇄ EUR)',
-      matchAria: 'Zápas'
+      swapCurrencyTitle: 'Prepnutie meny (HUF \u21c4 EUR)',
+      matchAria: 'Z\u00e1pas'
     }
   };
   function detectLang() {
@@ -908,7 +908,7 @@
   let currentLang = detectLang();
   const t = (k) => I18N[currentLang][k] || I18N.hu[k] || k;
   function applyI18nStatic() {
-    // A HTML lang attribútumában szerbhez az ISO-kód: "sr"
+    // A HTML lang attribÄ‚ĹźtumÄ‚Ë‡ban szerbhez az ISO-kÄ‚Ĺ‚d: "sr"
     document.documentElement.lang = currentLang === 'rs' ? 'sr' : currentLang;
     document.title = t('pageTitle');
     const calcRoot = document.getElementById('calculatorRoot');
@@ -980,8 +980,8 @@
   }
 
   // LS kulcsok
-  const LS_KEY_AUTO_OPEN = 'autoOpenLinks';           // betöltéskor automatikus nyitás
-  const LS_KEY_OPEN_ALL_ON_QUICK = 'openAllOnQuick';  // gyors megnyitás gomb nyisson mindent
+  const LS_KEY_AUTO_OPEN = 'autoOpenLinks';           // betÄ‚Â¶ltÄ‚Â©skor automatikus nyitÄ‚Ë‡s
+  const LS_KEY_OPEN_ALL_ON_QUICK = 'openAllOnQuick';  // gyors megnyitÄ‚Ë‡s gomb nyisson mindent
 
   const SS_KEY_ALREADY_TRIED = 'autoOpen_tried';
 
@@ -1063,7 +1063,7 @@
     const pillText = document.querySelector('#matchPill .text');
     if (pillText) pillText.textContent = matchName;
 
-    // Kattintásra másolás (egyszeri bind)
+    // KattintÄ‚Ë‡sra mÄ‚Ë‡solÄ‚Ë‡s (egyszeri bind)
     const pillEl = document.getElementById('matchPill');
     if (pillEl && !pillEl.dataset.copyBound) {
       const handleCopyMatch = async () => {
@@ -1079,7 +1079,7 @@
     }
   }
 
-  // Deviza módok (HUF/EUR/RON/RSD)
+  // Deviza mÄ‚Ĺ‚dok (HUF/EUR/RON/RSD)
   let stakeMode1 = 'HUF';
   let stakeMode2 = 'HUF';
 
@@ -1092,6 +1092,7 @@
 
   const APP_BOOT_STARTED_AT = performance.now();
   const INITIAL_LOADER_MIN_MS = 700;
+  const LOADER_HIDE_TRANSITION_MS = 460;
   const INITIAL_INPUT_ANIMATION_MS = 540;
   const INITIAL_PROFIT_ANIMATION_MS = 680;
   const INITIAL_GUARANTEED_ANIMATION_MS = 820;
@@ -1143,7 +1144,7 @@
     stakeField.value = formatTotalStakeValue(displayValue, totalStakeMode);
   };
 
-  // BETÖLTÉSKOR
+  // BETÄ‚â€“LTÄ‚â€°SKOR
   window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.calculator')?.classList.add('visible');
     try {
@@ -1151,7 +1152,7 @@
       applyURLParamsToFields();
       applyStakeFieldVisibility();
 
-      // Hidden paramok kitöltése (case-insensitive)
+      // Hidden paramok kitÄ‚Â¶ltÄ‚Â©se (case-insensitive)
       const f1Param = getCaseInsensitiveParam('F1');
       const f2Param = getCaseInsensitiveParam('F2');
       const meccsParam = getCaseInsensitiveParam('Meccs');
@@ -1170,8 +1171,14 @@
         meccsEl.addEventListener('input', renderMatchPill);
         meccsEl.addEventListener('change', renderMatchPill);
       }
-      initCalculate();
-      finalizeInitialBoot();
+      finalizeInitialBoot(() => {
+        try {
+          initCalculate();
+        } catch (bootError) {
+          console.error(bootError);
+          errorDiv.textContent = t('loadError');
+        }
+      });
     } catch (e) {
       console.error(e);
       hideInitialLoader();
@@ -1310,7 +1317,7 @@
      stakeMode2 = mode;
   }
 
-  // Gombok megjelenítése + Gyors megnyitás viselkedése
+  // Gombok megjelenÄ‚Â­tÄ‚Â©se + Gyors megnyitÄ‚Ë‡s viselkedÄ‚Â©se
   function showBookmakerButtons() {
     try {
       const bookDiv = document.getElementById("bookmakerButtons");
@@ -1331,7 +1338,7 @@
         seen.add(bm.key);
       });
 
-      // Gyors megnyitás gomb ideiglenesen kikapcsolva.
+      // Gyors megnyitÄ‚Ë‡s gomb ideiglenesen kikapcsolva.
 
       // Iroda gombok
       books.forEach(bm => {
@@ -1344,7 +1351,7 @@
         bookDiv.appendChild(a);
       });
 
-      // Ha van iroda, a „Számolás” gomb marad rejtve
+      // Ha van iroda, a Ă˘â‚¬ĹľSzÄ‚Ë‡molÄ‚Ë‡sĂ˘â‚¬ĹĄ gomb marad rejtve
       calcButton.style.display = books.length ? "none" : "inline-block";
     } catch (e) {
       console.error(e);
@@ -1397,7 +1404,7 @@
     calculateArbitrage();
   }
 
-  // == Deviza ↔ HUF konverzió ==
+  // == Deviza Ă˘â€ â€ť HUF konverziÄ‚Ĺ‚ ==
   function displayToHUF(displayValue, mode){
     const n = Number(String(displayValue).replace(',', '.')) || 0;
     if (mode === 'EUR') return n * eurRate;
@@ -1412,7 +1419,7 @@
   }
   function formatDisplay(n, mode){
     if (mode === 'EUR') return (Math.round(n * 10) / 10).toFixed(1);
-    return Math.round(n).toString(); // HUF/RON/RSD: egész
+    return Math.round(n).toString(); // HUF/RON/RSD: egÄ‚Â©sz
   }
   function roundToTenthEUR(x) {
     const n = Number(x);
@@ -1427,22 +1434,31 @@
     if (!calc) return;
     calc.classList.add('intro-ready');
   }
-  function hideInitialLoader(){
-    if (initialLoaderHidden) return;
+  function hideInitialLoader(onHidden){
+    if (initialLoaderHidden) {
+      if (typeof onHidden === 'function') onHidden();
+      return;
+    }
     initialLoaderHidden = true;
     const loader = document.getElementById('pageLoader');
-    if (!loader) return;
+    if (!loader) {
+      if (typeof onHidden === 'function') onHidden();
+      return;
+    }
     loader.classList.add('is-hidden');
-    setTimeout(() => { try { loader.remove(); } catch {} }, 300);
+    setTimeout(() => {
+      try { loader.remove(); } catch {}
+      if (typeof onHidden === 'function') onHidden();
+    }, LOADER_HIDE_TRANSITION_MS);
   }
-  function finalizeInitialBoot(){
+  function finalizeInitialBoot(onReady){
     const remaining = Math.max(0, INITIAL_LOADER_MIN_MS - (performance.now() - APP_BOOT_STARTED_AT));
     setTimeout(() => {
-      hideInitialLoader();
+      hideInitialLoader(onReady);
     }, remaining);
     setTimeout(() => {
       isInitialNumberLoad = false;
-    }, remaining + INITIAL_GUARANTEED_ANIMATION_MS);
+    }, remaining + LOADER_HIDE_TRANSITION_MS + INITIAL_GUARANTEED_ANIMATION_MS);
   }
   function setAnimatedTextValue(el, nextText){
     if (!el) return;
@@ -1602,7 +1618,7 @@
 
     const odds1      = parseFloat(odds1Field.value.replace(',', '.'));
     const odds2      = parseFloat(odds2Field.value.replace(',', '.'));
-    const totalStake = stakeInputToHUF(); // sk: EUR -> HUF, egyébként HUF
+    const totalStake = stakeInputToHUF(); // helyi valuta -> HUF
 
     if (!stake1Input || !stake2Input) resultDiv.innerHTML = '';
     errorDiv.textContent = '';
@@ -1638,7 +1654,7 @@
     updateProfits(odds1, odds2);
   }
 
-  // ==== Másolás ====
+  // ==== MÄ‚Ë‡solÄ‚Ë‡s ====
   function copyToClipboard(text) {
     if (!text && text !== 0) return Promise.resolve(false);
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1660,17 +1676,17 @@
       return Promise.resolve(false);
     }
   }
-  function showCopiedState(btn, original = "📋") {
+  function showCopiedState(btn, original = '\uD83D\uDCCB') {
     btn.classList.add('copied');
     const prev = btn.textContent;
-    btn.textContent = '✓';
+    btn.textContent = '\u2713';
     setTimeout(() => {
       btn.classList.remove('copied');
-      btn.textContent = original;
+      btn.textContent = '\u2713';
     }, 1500);
   }
 
-  // ==== Kerekítés és léptetés ====
+  // ==== KerekÄ‚Â­tÄ‚Â©s Ä‚Â©s lÄ‚Â©ptetÄ‚Â©s ====
   function roundedPairFrom(source, s1HUF, s2HUF, o1, o2){
     const stepForHufOrRon = (hufValue, mode) => {
       if (isLocalMode(mode)) return localStepInHUF(mode, hufValue);
@@ -1994,7 +2010,7 @@
     updateStakeAltDisplays();
   }
 
-  // Betöltéskori kerekítés + mozgásfigyelők
+  // BetÄ‚Â¶ltÄ‚Â©skori kerekÄ‚Â­tÄ‚Â©s + mozgÄ‚Ë‡sfigyelÄąâ€k
   window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('wheel', () => triggerCommitOnUserMotion(), { passive: true });
     window.addEventListener('scroll', () => triggerCommitOnUserMotion(), { passive: true });
@@ -2008,7 +2024,7 @@
   });
 
   /* =========================
-     Beállítások MODÁL + Auto Open + „Open All on Quick”
+     BeÄ‚Ë‡llÄ‚Â­tÄ‚Ë‡sok MODÄ‚ÂL + Auto Open + Ă˘â‚¬ĹľOpen All on QuickĂ˘â‚¬ĹĄ
      ========================= */
   (function initSettingsUI(){
     if (!isDesktopDevice()){
@@ -2040,14 +2056,14 @@
 
     if (guideLinkEl) guideLinkEl.href = getGuideUrl();
 
-    // Betöltés: állapotok
+    // BetÄ‚Â¶ltÄ‚Â©s: Ä‚Ë‡llapotok
     const savedAuto = (localStorage.getItem(LS_KEY_AUTO_OPEN) || 'false') === 'true';
     toggleAuto.checked = savedAuto;
 
     const savedOpenAll = (localStorage.getItem(LS_KEY_OPEN_ALL_ON_QUICK) || 'false') === 'true';
     toggleOpenAll.checked = savedOpenAll;
 
-    // Események
+    // EsemÄ‚Â©nyek
     btn.addEventListener('click', openSettings);
     closeX.addEventListener('click', closeSettings);
     backdrop.addEventListener('click', closeSettings);
@@ -2124,12 +2140,12 @@
     document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeHelp(); });
   })();
 
-  // Eszköz/nézet detektálás egyszerűsített
+  // EszkÄ‚Â¶z/nÄ‚Â©zet detektÄ‚Ë‡lÄ‚Ë‡s egyszerÄąÂ±sÄ‚Â­tett
   function isMobileView(){
     return window.matchMedia('(max-width: 600px)').matches;
   }
 
-  // Popup – mobilon középre modál, PC-n toast
+  // Popup Ă˘â‚¬â€ś mobilon kÄ‚Â¶zÄ‚Â©pre modÄ‚Ë‡l, PC-n toast
   function showPopupHint(){
     const guideUrl = getGuideUrl();
     const popupTitle = t('popupBlockedTitle');
@@ -2181,7 +2197,7 @@
     }
   }
 
-  // Összegyűjti a linkeket az URL/hidden alapján
+  // Ä‚â€“sszegyÄąÂ±jti a linkeket az URL/hidden alapjÄ‚Ë‡n
   function collectBookmakerUrls(){
     const keys = [_getBookVal('odds1Book'), _getBookVal('odds2Book')].filter(Boolean);
     const seen = new Set();
@@ -2198,7 +2214,7 @@
     return urls;
   }
 
-  // Betöltéskori automatikus nyitás (ha bekapcsolva)
+  // BetÄ‚Â¶ltÄ‚Â©skori automatikus nyitÄ‚Ë‡s (ha bekapcsolva)
   function maybeAutoOpenLinks(){
     const enabled = (localStorage.getItem(LS_KEY_AUTO_OPEN) || 'false') === 'true';
     if (!enabled) return;
@@ -2226,7 +2242,7 @@
     setTimeout(maybeAutoOpenLinks, 300);
   });
 
-  // Hidden oddsBook mezők figyelése
+  // Hidden oddsBook mezÄąâ€k figyelÄ‚Â©se
   window.addEventListener('DOMContentLoaded', () => {
     ['odds1Book','odds2Book'].forEach(id=>{
       const el = document.getElementById(id);
@@ -2242,7 +2258,7 @@
     });
   });
 
-  // ==== Szerkeszthető tétek + F1/F2 badge ====
+  // ==== SzerkeszthetÄąâ€ tÄ‚Â©tek + F1/F2 badge ====
   function renderEditableStakes(initialStake1HUF, initialStake2HUF) {
     resultDiv.innerHTML = '';
 
@@ -2276,7 +2292,7 @@
     copyBtn1.type = 'button';
     copyBtn1.className = 'copy-btn';
     copyBtn1.setAttribute('aria-label', t('copyStakeAria'));
-    copyBtn1.textContent = '📋';
+    copyBtn1.textContent = '\uD83D\uDCCB';
 
     stake1Input = document.createElement('input');
     stake1Input.type  = 'number';
@@ -2383,7 +2399,7 @@
     copyBtn2.type = 'button';
     copyBtn2.className = 'copy-btn';
     copyBtn2.setAttribute('aria-label', t('copyStakeAria'));
-    copyBtn2.textContent = '📋';
+    copyBtn2.textContent = '\uD83D\uDCCB';
 
     stake2Input = document.createElement('input');
     stake2Input.type  = 'number';
